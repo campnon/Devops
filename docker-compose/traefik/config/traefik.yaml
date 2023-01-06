@@ -39,7 +39,7 @@ entryPoints:
 
 # Configure your CertificateResolver here...
 # ---
-# certificatesResolvers:
+certificatesResolvers:
 #   staging:
 #     acme:
 #       email: your-email@example.com
@@ -48,13 +48,13 @@ entryPoints:
 #       httpChallenge:
 #         entryPoint: web
 #
-#   production:
-#     acme:
-#       email: your-email@example.com
-#       storage: /etc/traefik/certs/acme.json
-#       caServer: "https://acme-v02.api.letsencrypt.org/directory"
-#       httpChallenge:
-#         entryPoint: web
+   production:
+     acme:
+       email: admin@mesisamu.com
+       storage: /etc/traefik/certs/acme.json
+       caServer: "https://acme-v02.api.letsencrypt.org/directory"
+       httpChallenge:
+         entryPoint: web
 
 # (Optional) Overwrite Default Certificates
 # tls:
