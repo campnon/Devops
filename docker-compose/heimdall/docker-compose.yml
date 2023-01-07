@@ -1,0 +1,26 @@
+---
+version: "2.1"
+services:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./heimdall/config:/config
+    ports:
+      - 9090:80
+      - 8787:443
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.port.loadbalancer.server.port=443"
+      - "traefik.http.routers.port.rule=Host(`heimdall.mesisamu.com`)"
+      - "traefik.http.routers.port.entrypoints=websecure"
+      - "traefik.http.routers.port.tls.certresolver=production"
+      - "traefik.http.routers.port.tls=true"
+networks:
+  default:
+    external:
+      name: traefik_default

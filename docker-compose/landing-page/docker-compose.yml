@@ -1,0 +1,21 @@
+version: '3.3'
+# KB_DB_TAG_VERSION=mytagversion docker-compose up
+services:
+      web:
+        image: campnonet/landing-page
+        ports:
+          - 85:80
+        restart: always
+        volumes:
+          - /var/www/html
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.services.landing.loadbalancer.server.port=80"
+          - "traefik.http.routers.landing.rule=Host(`heim.mesisamu.com`)"
+          - "traefik.http.routers.landing.entrypoints=websecure"
+          - "traefik.http.routers.landing.tls.certresolver=production"
+          - "traefik.http.routers.landing.tls=true"
+networks:
+  default:
+    external:
+      name: traefik_default
