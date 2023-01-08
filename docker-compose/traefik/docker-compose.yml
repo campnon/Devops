@@ -12,3 +12,4 @@ services:
     volumes:
       - /otc/traefik:/etc/traefik
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /opt/traefik/:/etc/traefik/certs/

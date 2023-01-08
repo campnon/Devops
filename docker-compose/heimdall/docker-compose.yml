@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.services.port.loadbalancer.server.port=443"
+      - "traefik.http.services.port.loadbalancer.server.port=80"
       - "traefik.http.routers.port.rule=Host(`heimdall.mesisamu.com`)"
       - "traefik.http.routers.port.entrypoints=websecure"
       - "traefik.http.routers.port.tls.certresolver=production"

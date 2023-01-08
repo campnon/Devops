@@ -4,10 +4,10 @@ global:
 
 # (Optional) Log information
 # ---
-# log:
-#  level: ERROR  # DEBUG, INFO, WARNING, ERROR, CRITICAL
-#   format: common  # common, json, logfmt
-#   filePath: /var/log/traefik/traefik.log
+log:
+  level: ERROR  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: common  # common, json, logfmt
+  filePath: /var/log/traefik/traefik.log
 
 # (Optional) Accesslog
 # ---
@@ -17,9 +17,9 @@ global:
 
 # (Optional) Enable API and Dashboard
 # ---
-# api:
-#  dashboard: true  # true by default
-#  insecure: true  # Don't do this in production!
+api:
+  dashboard: true  # true by default
+  insecure: false  # Don't do this in production!
 
 # Entry Points configuration
 # ---
@@ -40,17 +40,17 @@ entryPoints:
 # Configure your CertificateResolver here...
 # ---
 certificatesResolvers:
-#   staging:
-#     acme:
-#       email: your-email@example.com
-#       storage: /etc/traefik/certs/acme.json
-#       caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
-#       httpChallenge:
-#         entryPoint: web
+   staging:
+     acme:
+       email: bob92588@gmail.com
+       storage: /etc/traefik/certs/acme.json
+       caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+       httpChallenge:
+         entryPoint: web
 #
    production:
      acme:
-       email: admin@mesisamu.com
+       email: bob92588@gmail.com
        storage: /etc/traefik/certs/acme.json
        caServer: "https://acme-v02.api.letsencrypt.org/directory"
        httpChallenge:
